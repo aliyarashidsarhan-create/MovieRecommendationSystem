@@ -86,8 +86,7 @@
               "RelativeToolTip": "Data\\movies.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-12T09:26:43.625Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-12T09:26:43.625Z"
             },
             {
               "$type": "Document",
@@ -109,7 +108,7 @@
               "RelativeDocumentMoniker": "Data\\users.json",
               "ToolTip": "C:\\Users\\malak\\OneDrive\\Desktop\\11\\MovieRecommendationSystem\\Data\\users.json",
               "RelativeToolTip": "Data\\users.json",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-05-12T09:27:09.191Z",
               "EditorCaption": ""

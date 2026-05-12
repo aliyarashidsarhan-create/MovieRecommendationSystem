@@ -1,1 +1,17 @@
-//
+[
+  {
+    "UserId": 1,
+    "MovieId": 1,
+    "Score": 5
+  },
+  {
+    "UserId": 2,
+    "MovieId": 1,
+    "Score": 5
+  },
+  {
+    "UserId": 2,
+    "MovieId": 3,
+    "Score": 5
+  }
+]

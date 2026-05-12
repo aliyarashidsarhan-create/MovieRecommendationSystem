@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\malak\\OneDrive\\Desktop\\11\\MovieRecommendationSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|c:\\users\\malak\\onedrive\\desktop\\11\\movierecommendationsystem\\data\\ratings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|solutionrelative:data\\ratings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|c:\\users\\malak\\onedrive\\desktop\\11\\movierecommendationsystem\\data\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|solutionrelative:data\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|c:\\users\\malak\\onedrive\\desktop\\11\\movierecommendationsystem\\utilities\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|solutionrelative:utilities\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|c:\\users\\malak\\onedrive\\desktop\\11\\movierecommendationsystem\\data\\ratings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|solutionrelative:data\\ratings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|c:\\users\\malak\\onedrive\\desktop\\11\\movierecommendationsystem\\interfaces\\irecommendation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -74,11 +74,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "movies.json",
               "DocumentMoniker": "C:\\Users\\malak\\OneDrive\\Desktop\\11\\MovieRecommendationSystem\\Data\\movies.json",
               "RelativeDocumentMoniker": "Data\\movies.json",
@@ -90,25 +90,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "ratings.json",
               "DocumentMoniker": "C:\\Users\\malak\\OneDrive\\Desktop\\11\\MovieRecommendationSystem\\Data\\ratings.json",
               "RelativeDocumentMoniker": "Data\\ratings.json",
               "ToolTip": "C:\\Users\\malak\\OneDrive\\Desktop\\11\\MovieRecommendationSystem\\Data\\ratings.json",
               "RelativeToolTip": "Data\\ratings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-12T09:27:37.38Z"
+              "WhenOpened": "2026-05-12T09:27:37.38Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "users.json",
               "DocumentMoniker": "C:\\Users\\malak\\OneDrive\\Desktop\\11\\MovieRecommendationSystem\\Data\\users.json",
               "RelativeDocumentMoniker": "Data\\users.json",
               "ToolTip": "C:\\Users\\malak\\OneDrive\\Desktop\\11\\MovieRecommendationSystem\\Data\\users.json",
               "RelativeToolTip": "Data\\users.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-05-12T09:27:09.191Z",
               "EditorCaption": ""
@@ -127,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "FileManager.cs",
               "DocumentMoniker": "C:\\Users\\malak\\OneDrive\\Desktop\\11\\MovieRecommendationSystem\\Utilities\\FileManager.cs",
               "RelativeDocumentMoniker": "Utilities\\FileManager.cs",
@@ -139,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ValidationHelper.cs",
               "DocumentMoniker": "C:\\Users\\malak\\OneDrive\\Desktop\\11\\MovieRecommendationSystem\\Utilities\\ValidationHelper.cs",
               "RelativeDocumentMoniker": "Utilities\\ValidationHelper.cs",

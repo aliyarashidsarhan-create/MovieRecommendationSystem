@@ -1,5 +1,6 @@
-﻿using Newtonsoft.Json;   // يحول البيانات من C# الى JSON
-using MovieRecommendationSystem.Interfaces;
+﻿using MovieRecommendationSystem.Interfaces;
+using Newtonsoft.Json;   // يحول البيانات من C# الى JSON
+using static MovieRecommendationSystem.Interfaces.IDataManager;
 
 namespace MovieRecommendationSystem.Utilities
 {

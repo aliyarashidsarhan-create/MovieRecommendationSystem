@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|c:\\users\\aliya\\onedrive\\desktop\\movierecommendationsystem\\interfaces\\isearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|solutionrelative:interfaces\\isearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|c:\\users\\aliya\\onedrive\\desktop\\movierecommendationsystem\\interfaces\\irecommendation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|solutionrelative:interfaces\\irecommendation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -75,10 +79,6 @@
       "RelativeMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|solutionrelative:services\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|c:\\users\\aliya\\onedrive\\desktop\\movierecommendationsystem\\interfaces\\isearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|solutionrelative:interfaces\\isearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|c:\\users\\aliya\\onedrive\\desktop\\movierecommendationsystem\\movierecommendationsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{4157E63E-7195-96B0-C7DB-336A7460202D}|MovieRecommendationSystem.csproj|solutionrelative:movierecommendationsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
@@ -95,18 +95,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Admin.cs",
-              "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Models\\Admin.cs",
-              "RelativeDocumentMoniker": "Models\\Admin.cs",
-              "ToolTip": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Models\\Admin.cs",
-              "RelativeToolTip": "Models\\Admin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-12T10:09:36.172Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "Movie.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Models\\Movie.cs",
               "RelativeDocumentMoniker": "Models\\Movie.cs",
@@ -118,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Rating.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Models\\Rating.cs",
               "RelativeDocumentMoniker": "Models\\Rating.cs",
@@ -130,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "IDataManager.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Interfaces\\IDataManager.cs",
               "RelativeDocumentMoniker": "Interfaces\\IDataManager.cs",
@@ -138,12 +126,11 @@
               "RelativeToolTip": "Interfaces\\IDataManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-12T09:29:20.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-12T09:29:20.276Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "IRecommendation.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Interfaces\\IRecommendation.cs",
               "RelativeDocumentMoniker": "Interfaces\\IRecommendation.cs",
@@ -156,7 +143,32 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ISearch.cs",
+              "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Interfaces\\ISearch.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ISearch.cs",
+              "ToolTip": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Interfaces\\ISearch.cs",
+              "RelativeToolTip": "Interfaces\\ISearch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T09:29:50.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "Models\\Admin.cs",
+              "ToolTip": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Models\\Admin.cs",
+              "RelativeToolTip": "Models\\Admin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T10:09:36.172Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
@@ -168,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Person.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Models\\Person.cs",
               "RelativeDocumentMoniker": "Models\\Person.cs",
@@ -180,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "movies.json",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Data\\movies.json",
               "RelativeDocumentMoniker": "Data\\movies.json",
@@ -192,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ratings.json",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Data\\ratings.json",
               "RelativeDocumentMoniker": "Data\\ratings.json",
@@ -204,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "users.json",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Data\\users.json",
               "RelativeDocumentMoniker": "Data\\users.json",
@@ -216,7 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "FileManager.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Utilities\\FileManager.cs",
               "RelativeDocumentMoniker": "Utilities\\FileManager.cs",
@@ -228,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "ValidationHelper.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Utilities\\ValidationHelper.cs",
               "RelativeDocumentMoniker": "Utilities\\ValidationHelper.cs",
@@ -240,7 +252,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "RecommendationService.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Services\\RecommendationService.cs",
               "RelativeDocumentMoniker": "Services\\RecommendationService.cs",
@@ -252,7 +264,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "CollaborativeFilteringService.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Services\\CollaborativeFilteringService.cs",
               "RelativeDocumentMoniker": "Services\\CollaborativeFilteringService.cs",
@@ -264,7 +276,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "ContentBasedService.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Services\\ContentBasedService.cs",
               "RelativeDocumentMoniker": "Services\\ContentBasedService.cs",
@@ -276,7 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "SearchService.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Services\\SearchService.cs",
               "RelativeDocumentMoniker": "Services\\SearchService.cs",
@@ -288,7 +300,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "MovieService.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Services\\MovieService.cs",
               "RelativeDocumentMoniker": "Services\\MovieService.cs",
@@ -300,7 +312,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "AuthenticationService.cs",
               "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Services\\AuthenticationService.cs",
               "RelativeDocumentMoniker": "Services\\AuthenticationService.cs",
@@ -309,18 +321,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-12T09:30:16.205Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ISearch.cs",
-              "DocumentMoniker": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Interfaces\\ISearch.cs",
-              "RelativeDocumentMoniker": "Interfaces\\ISearch.cs",
-              "ToolTip": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\Interfaces\\ISearch.cs",
-              "RelativeToolTip": "Interfaces\\ISearch.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-12T09:29:50.557Z"
             },
             {
               "$type": "Document",

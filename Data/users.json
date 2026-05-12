@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+///
+=======
 [
   {
     "FavoriteGenres": [ "Sci-Fi", "Action" ],
@@ -14,3 +17,4 @@
     "Password": "1234"
   }
 ]
+>>>>>>> ca66d7efbad520bf1fee578f0142bddc6530b3ce

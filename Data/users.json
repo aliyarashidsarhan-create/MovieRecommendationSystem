@@ -1,1 +1,16 @@
-//
+[
+  {
+    "FavoriteGenres": [ "Sci-Fi", "Action" ],
+    "WatchHistory": [ 1 ],
+    "Id": 1,
+    "Username": "malak",
+    "Password": "1234"
+  },
+  {
+    "FavoriteGenres": [ "Action", "Drama" ],
+    "WatchHistory": [ 1, 3 ],
+    "Id": 2,
+    "Username": "hind",
+    "Password": "1234"
+  }
+]

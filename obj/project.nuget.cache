@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "p05+48o2enc=",
+  "dgSpecHash": "sdMDW844p8E=",
   "success": true,
-  "projectFilePath": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj",
+  "projectFilePath": "C:\\Users\\malak\\OneDrive\\Desktop\\11\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\aliya\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512"
+    "C:\\Users\\malak\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512"
   ],
   "logs": []
 }

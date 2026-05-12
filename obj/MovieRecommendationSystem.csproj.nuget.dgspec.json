@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj": {}
+    "C:\\Users\\anoud\\OneDrive\\Desktop\\BackEnd\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj": {
+    "C:\\Users\\anoud\\OneDrive\\Desktop\\BackEnd\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj",
+        "projectUniqueName": "C:\\Users\\anoud\\OneDrive\\Desktop\\BackEnd\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj",
         "projectName": "MovieRecommendationSystem",
-        "projectPath": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj",
-        "packagesPath": "C:\\Users\\aliya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aliya\\OneDrive\\Desktop\\MovieRecommendationSystem\\obj\\",
+        "projectPath": "C:\\Users\\anoud\\OneDrive\\Desktop\\BackEnd\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj",
+        "packagesPath": "C:\\Users\\anoud\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anoud\\OneDrive\\Desktop\\BackEnd\\MovieRecommendationSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\aliya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\anoud\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

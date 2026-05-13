@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MovieRecommendationSystem.Models;
 
 namespace MovieRecommendationSystem.Interfaces
 {
-    internal interface IRecommendation
+    // Interface for recommendation strategies.
+    public interface IRecommendation
     {
+        List<Movie> Recommend(User user, List<Movie> movies, List<Rating> ratings, List<User> users);
     }
 }

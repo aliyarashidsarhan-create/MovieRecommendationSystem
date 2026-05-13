@@ -36,33 +36,49 @@ namespace MovieRecommendationSystem.Services
         }
 
         // Simple similarity calculation between two users.
+        // Calculate similarity between two users using Cosine Similarity.
         private double CalculateSimilarity(int userId1, int userId2, List<Rating> ratings)
         {
             var ratings1 = ratings.Where(r => r.UserId == userId1).ToList();
             var ratings2 = ratings.Where(r => r.UserId == userId2).ToList();
 
+            // Get movies rated by both users.
             var commonMovies = ratings1
-                .Select(r => r.MovieId)
-                .Intersect(ratings2.Select(r => r.MovieId))
-                .ToList();
+        .Select(r => r.MovieId)
+        .Intersect(ratings2.Select(r => r.MovieId))
+        .ToList();
 
+            // If there are no common movies, similarity = 0.
             if (commonMovies.Count == 0)
             {
                 return 0;
             }
 
-            double similarity = 0;
+            double dotProduct = 0;
+            double magnitude1 = 0;
+            double magnitude2 = 0;
 
             foreach (var movieId in commonMovies)
             {
                 int score1 = ratings1.First(r => r.MovieId == movieId).Score;
                 int score2 = ratings2.First(r => r.MovieId == movieId).Score;
 
-                // Smaller difference means higher similarity.
-                similarity += 5 - Math.Abs(score1 - score2);
+                // Multiply ratings together.
+                dotProduct += score1 * score2;
+
+                // Square ratings.
+                magnitude1 += Math.Pow(score1, 2);
+                magnitude2 += Math.Pow(score2, 2);
             }
 
-            return similarity / commonMovies.Count;
+            // Avoid division by zero.
+            if (magnitude1 == 0 || magnitude2 == 0)
+            {
+                return 0;
+            }
+
+            // Cosine Similarity formula.
+            return dotProduct / (Math.Sqrt(magnitude1) * Math.Sqrt(magnitude2));
         }
     }
 }

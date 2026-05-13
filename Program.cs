@@ -2,12 +2,30 @@
 using MovieRecommendationSystem.Services;
 using MovieRecommendationSystem.Utilities;
 
+
 namespace MovieRecommendationSystem
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            ConsoleUI.Header("AI MOVIE RECOMMENDATION SYSTEM");
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+
+            Console.WriteLine(@"
+      ███╗   ███╗ ██████╗ ██╗   ██╗██╗███████╗
+      ████╗ ████║██╔═══██╗██║   ██║██║██╔════╝
+      ██╔████╔██║██║   ██║██║   ██║██║█████╗
+      ██║╚██╔╝██║██║   ██║╚██╗ ██╔╝██║██╔══╝
+      ██║ ╚═╝ ██║╚██████╔╝ ╚████╔╝ ██║███████╗
+      ╚═╝     ╚═╝ ╚═════╝   ╚═══╝  ╚═╝╚══════╝
+");
+
+            Console.ResetColor();
+
+            ConsoleUI.Loading("Starting system");
+
             // File paths for storing JSON data.
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
 
@@ -20,7 +38,7 @@ namespace MovieRecommendationSystem
             FileManager<Movie> movieFileManager = new FileManager<Movie>();
             FileManager<Rating> ratingFileManager = new FileManager<Rating>();
 
-            
+
 
             // Load data from JSON files.
             List<User> users = userFileManager.LoadData(usersFile);
@@ -28,7 +46,7 @@ namespace MovieRecommendationSystem
 
             List<Rating> ratings = ratingFileManager.LoadData(ratingsFile);
 
-            
+
             // Create service objects.
             AuthenticationService authService = new AuthenticationService(users);
             MovieService movieService = new MovieService(movies, ratings);
@@ -41,11 +59,12 @@ namespace MovieRecommendationSystem
                 Console.Clear();
 
                 // Display main menu.
-                Console.WriteLine("===== Movie Recommendation System =====");
+                ConsoleUI.Header("AI MOVIE RECOMMENDATION SYSTEM");
+                ConsoleUI.Section("MAIN MENU");
                 Console.WriteLine("1. Register");
                 Console.WriteLine("2. Login");
                 Console.WriteLine("3. Exit");
-                Console.Write("Choose option: ");
+                Console.Write("\nChoose option: ");
 
                 string choice = Console.ReadLine() ?? "";
 
@@ -77,7 +96,13 @@ namespace MovieRecommendationSystem
                         return;
 
                     default:
-                        Console.WriteLine("Invalid option.");
+                        Console.ForegroundColor = ConsoleColor.Red;
+
+                        Console.WriteLine("╔════════════════════════════╗");
+                        Console.WriteLine("║      Invalid Option!      ║");
+                        Console.WriteLine("╚════════════════════════════╝");
+
+                        Console.ResetColor();
                         break;
                 }
 
@@ -145,7 +170,7 @@ namespace MovieRecommendationSystem
                 // Save updated users list.
                 userFileManager.SaveData(usersFile, users);
 
-                Console.WriteLine("Registration successful!");
+                ConsoleUI.Success("Registration successful!");
             }
             else
             {
@@ -183,24 +208,22 @@ namespace MovieRecommendationSystem
 
             if (user != null)
             {
-                Console.WriteLine($"Welcome {user.Username}!");
+                ConsoleUI.Success($"Welcome {user.Username}!");
 
-                Console.WriteLine("\nPress any key to continue...");
-                Console.ReadKey();
+                ConsoleUI.Loading($"Loading profile for {user.Username}");
 
-                // Open dashboard after successful login.
                 UserDashboard(
-                    user,
-                    movieService,
-                    searchService,
-                    recommendationService,
-                    movies,
-                    ratings,
-                    users,
-                    userFileManager,
-                    ratingFileManager,
-                    usersFile,
-                    ratingsFile
+                user,
+                movieService,
+                searchService,
+                recommendationService,
+                movies,
+                ratings,
+                users,
+                userFileManager,
+                ratingFileManager,
+                usersFile,
+                ratingsFile
                 );
             }
             else
@@ -228,13 +251,25 @@ namespace MovieRecommendationSystem
                 Console.Clear();
 
                 // Dashboard menu.
-                Console.WriteLine($"===== Welcome {user.Username} =====");
+                ConsoleUI.Header($"WELCOME {user.Username.ToUpper()}");
+                ConsoleUI.Section("USER DASHBOARD");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+
+                Console.WriteLine($"Favorite Genres: {string.Join(", ", user.FavoriteGenres)}");
+
+                Console.ResetColor();
                 Console.WriteLine("1. Browse Movies");
                 Console.WriteLine("2. Search Movies");
                 Console.WriteLine("3. Rate Movie");
-                Console.WriteLine("4. View Recommendations");
-                Console.WriteLine("5. Watch History");
-                Console.WriteLine("6. Logout");
+                Console.WriteLine("4. Remove Rating");
+                Console.WriteLine("5. View Recommendations");
+                Console.WriteLine("6. Watch History");
+                Console.WriteLine("7. Top Rated Movies");
+                Console.WriteLine("8. System Statistics");
+                Console.WriteLine("9. Trending Movies");
+                Console.WriteLine("10. Favorite Movies");
+                Console.WriteLine("11. Movie Details");
+                Console.WriteLine("12.Logout");
                 Console.Write("Choose option: ");
 
                 string choice = Console.ReadLine() ?? "";
@@ -244,6 +279,7 @@ namespace MovieRecommendationSystem
                     // Display all movies.
                     case "1":
                         movieService.DisplayMovies();
+                       
                         break;
 
                     // Search movies by keyword.
@@ -251,6 +287,8 @@ namespace MovieRecommendationSystem
 
                         Console.Write("Enter search keyword: ");
                         string keyword = Console.ReadLine() ?? "";
+
+                        ConsoleUI.Loading("Searching movies");
 
                         List<Movie> results = searchService.SearchMovies(movies, keyword);
 
@@ -260,11 +298,19 @@ namespace MovieRecommendationSystem
                         }
                         else
                         {
-                            Console.WriteLine("\nSearch Results:");
+                            Console.WriteLine("\nSearch Results:\n");
+
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+
+                            Console.WriteLine("--------------------------------------------------------------------------------");
+                            Console.WriteLine($"{"ID",-5} {"TITLE",-30} {"GENRE",-15} {"YEAR",-10} {"RATING",-10}");
+                            Console.WriteLine("--------------------------------------------------------------------------------");
+
+                            Console.ResetColor();
 
                             foreach (Movie movie in results)
                             {
-                                Console.WriteLine($"{movie.Id}. {movie.Title} | {movie.Genre} | {movie.ReleaseYear} | Rating: {movie.Rating}");
+                                Console.WriteLine($"{movie.Id,-5} {movie.Title,-30} {movie.Genre,-15} {movie.ReleaseYear,-10} {movie.Rating,-10}");
                             }
                         }
 
@@ -272,57 +318,110 @@ namespace MovieRecommendationSystem
 
                     // Rate a movie.
                     case "3":
-
                         movieService.DisplayMovies();
 
                         Console.Write("\nEnter movie ID: ");
-
                         bool validMovieId = int.TryParse(Console.ReadLine(), out int movieId);
 
                         Console.Write("Enter rating from 1 to 5: ");
-
                         bool validScore = int.TryParse(Console.ReadLine(), out int score);
 
                         if (!validMovieId || !validScore)
                         {
-                            Console.WriteLine("Invalid input. Please enter numbers only.");
+                            Console.ForegroundColor = ConsoleColor.Red;
+
+                            Console.WriteLine("╔══════════════════════════════════════╗");
+                            Console.WriteLine("║  Invalid Input! Numbers only.        ║");
+                            Console.WriteLine("╚══════════════════════════════════════╝");
+
+                            Console.ResetColor();
                         }
                         else
                         {
                             movieService.RateMovie(user, movieId, score);
 
-                            // Save updated ratings and users.
                             ratingFileManager.SaveData(ratingsFile, ratings);
                             userFileManager.SaveData(usersFile, users);
                         }
 
                         break;
 
-                    // Show movie recommendations.
+                    // Remove rating.
                     case "4":
+                        movieService.DisplayMovies();
 
-                        List<Movie> recommendations =
-                            recommendationService.GetRecommendations(user, movies, ratings, users);
+                        Console.Write("\nEnter movie ID to remove rating: ");
+                        bool validRemoveId = int.TryParse(Console.ReadLine(), out int removeMovieId);
 
-                        Console.WriteLine("\nTop Recommendations:");
-
-                        if (recommendations.Count == 0)
+                        if (!validRemoveId)
                         {
-                            Console.WriteLine("No recommendations yet. Rate more movies first.");
+                            Console.WriteLine("Invalid movie ID.");
                         }
                         else
                         {
+                            movieService.RemoveRating(user, removeMovieId);
+
+                            ratingFileManager.SaveData(ratingsFile, ratings);
+                        }
+
+                        break;
+
+                    // Show movie recommendations.
+                    case "5":
+
+                        ConsoleUI.Loading("Loading AI recommendations");
+                        Console.ForegroundColor = ConsoleColor.DarkCyan;
+
+                        Console.WriteLine("\nAI Engine Analysis:");
+                        Console.WriteLine("- Analyzing your ratings");
+                        Console.WriteLine("- Matching favorite genres");
+                        Console.WriteLine("- Comparing similar users");
+                        Console.WriteLine("- Calculating recommendation scores");
+
+                        Console.ResetColor();
+
+                        Thread.Sleep(5000);
+
+                        List<Movie> recommendations =
+                        recommendationService.GetRecommendations(user, movies, ratings, users);
+
+                        Console.ForegroundColor = ConsoleColor.Green;
+
+                        Console.WriteLine("\n╔════════════════════════════════════════════╗");
+                        Console.WriteLine("║          AI TOP RECOMMENDATIONS           ║");
+                        Console.WriteLine("╚════════════════════════════════════════════╝");
+
+                        Console.ResetColor();
+
+                        if (recommendations.Count == 0)
+                        {
+                            ConsoleUI.Error("No recommendations yet. Rate more movies first.");
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            Console.WriteLine("\n----------------------------------------------------------------------------");
+                            Console.WriteLine($"{"NO",-5} {"TITLE",-35} {"GENRE",-15} {"RATING",-10}");
+                            Console.WriteLine("----------------------------------------------------------------------------");
+                            Console.ResetColor();
+
+                            int number = 1;
+
                             foreach (Movie movie in recommendations)
                             {
-                                Console.WriteLine($"{movie.Title} | {movie.Genre} | Rating: {movie.Rating}");
+                                Console.WriteLine($"{number,-5} {movie.Title,-35} {movie.Genre,-15} {movie.Rating,-10}");
+                                number++;
                             }
+
+                            Console.ForegroundColor = ConsoleColor.DarkGray;
+                            Console.WriteLine("\nRecommendations are based on your ratings, favorite genres, and similar users.");
+                            Console.ResetColor();
                         }
 
                         break;
 
                     // Display watch history.
-                    case "5":
-
+                    case "6":
                         Console.WriteLine("\nWatch History:");
 
                         if (user.WatchHistory.Count == 0)
@@ -351,22 +450,255 @@ namespace MovieRecommendationSystem
                                 }
                             }
                         }
+
                         break;
 
-                    // Logout from dashboard.
-                    case "6":
+                    case "7":
 
-                        Console.WriteLine("Logged out.");
+                        ConsoleUI.Loading("Loading top rated movies");
+
+                        var topMovies = movies
+                        .OrderByDescending(m => m.Rating)
+                        .Take(10)
+                        .ToList();
+
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+
+                        Console.WriteLine("\n╔════════════════════════════════════════════╗");
+                        Console.WriteLine("║              TOP RATED MOVIES             ║");
+                        Console.WriteLine("╚════════════════════════════════════════════╝");
+
+                        Console.ResetColor();
+
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+
+                        Console.WriteLine("\n--------------------------------------------------------------------------------");
+                        Console.WriteLine($"{"NO",-5} {"TITLE",-35} {"GENRE",-15} {"RATING",-10}");
+                        Console.WriteLine("--------------------------------------------------------------------------------");
+
+                        Console.ResetColor();
+
+                        int rank = 1;
+
+                        foreach (var movie in topMovies)
+                        {
+                            Console.WriteLine($"{rank,-5} {movie.Title,-35} {movie.Genre,-15} {movie.Rating,-10}");
+                            rank++;
+                        }
+
+                        break;
+                        // System statistics.
+                    case "8":
+
+                        ConsoleUI.Loading("Loading system statistics");
+
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+
+                        Console.WriteLine("\n╔════════════════════════════════════════════╗");
+                        Console.WriteLine("║             SYSTEM STATISTICS             ║");
+                        Console.WriteLine("╚════════════════════════════════════════════╝");
+
+                        Console.ResetColor();
+
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+
+                        Console.WriteLine($"\nTotal Movies      : {movies.Count}");
+                        Console.WriteLine($"Total Users       : {users.Count}");
+                        Console.WriteLine($"Total Ratings     : {ratings.Count}");
+
+                        double averageRating = ratings.Count > 0
+                        ? ratings.Average(r => r.Score)
+                        : 0;
+
+                        Console.WriteLine($"Average Rating    : {averageRating:F1}");
+
+                        var mostWatchedGenre = movies
+                        .GroupBy(m => m.Genre)
+                        .OrderByDescending(g => g.Count())
+                        .FirstOrDefault();
+
+                        if (mostWatchedGenre != null)
+                        {
+                            Console.WriteLine($"Top Genre         : {mostWatchedGenre.Key}");
+                        }
+
+                        Console.ResetColor();
+
+                        break;
+                    // Trending movies based on number of ratings.
+                    case "9":
+
+                        ConsoleUI.Loading("Finding trending movies");
+
+                        var trendingMovies = ratings
+                        .GroupBy(r => r.MovieId)
+                        .Select(g => new
+                        {
+                            MovieId = g.Key,
+                            RatingCount = g.Count(),
+                            AverageScore = g.Average(r => r.Score)
+                        })
+                        .OrderByDescending(x => x.RatingCount)
+                        .ThenByDescending(x => x.AverageScore)
+                        .Take(10)
+                        .ToList();
+
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+
+                        Console.WriteLine("\n╔════════════════════════════════════════════╗");
+                        Console.WriteLine("║              TRENDING MOVIES                 ║");
+                        Console.WriteLine("╚════════════════════════════════════════════╝");
+
+                        Console.ResetColor();
+
+                        if (trendingMovies.Count == 0)
+                        {
+                            ConsoleUI.Error("No trending movies yet.");
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+
+                            Console.WriteLine("\n--------------------------------------------------------------------------------");
+                            Console.WriteLine($"{"NO",-5} {"TITLE",-35} {"RATINGS",-10} {"AVG SCORE",-10}");
+                            Console.WriteLine("--------------------------------------------------------------------------------");
+
+                            Console.ResetColor();
+
+                            int trank = 1;
+
+                            foreach (var item in trendingMovies)
+                            {
+                                Movie? movie = movies.FirstOrDefault(m => m.Id == item.MovieId);
+
+                                if (movie != null)
+                                {
+                                    Console.WriteLine($"{trank,-5} {movie.Title,-35} {item.RatingCount,-10} {item.AverageScore,-10:F1}");
+                                    trank++;
+                                }
+                            }
+                        }
+
+                        break;
+                    // Favorite movies based on rating 5.
+                    case "10":
+
+                        ConsoleUI.Loading("Loading favorite movies");
+
+                        var favoriteMovieIds = ratings
+                        .Where(r => r.UserId == user.Id && r.Score == 5)
+                        .Select(r => r.MovieId)
+                        .ToList();
+
+                        var favoriteMovies = movies
+                        .Where(m => favoriteMovieIds.Contains(m.Id))
+                        .ToList();
+
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+
+                        Console.WriteLine("\n╔════════════════════════════════════════════╗");
+                        Console.WriteLine("  ║              FAVORITE MOVIES               ║");
+                        Console.WriteLine("  ╚════════════════════════════════════════════ ╝");
+
+                        Console.ResetColor();
+
+                        if (favoriteMovies.Count == 0)
+                        {
+                            ConsoleUI.Error("No favorite movies yet. Rate movies with 5 stars first.");
+                        }
+                        else
+                        {
+                            foreach (Movie movie in favoriteMovies)
+                            {
+                                Console.WriteLine($"{movie.Title} | {movie.Genre} | Rating: {movie.Rating}");
+                            }
+                        }
+
+                        break;
+                    // Display detailed movie information.
+                    case "11":
+
+                        movieService.DisplayMovies();
+
+                        Console.Write("\nEnter movie ID: ");
+
+                        bool validDetailsId =
+                        int.TryParse(Console.ReadLine(), out int detailsMovieId);
+
+                        if (!validDetailsId)
+                        {
+                            ConsoleUI.Error("Invalid movie ID.");
+                        }
+                        else
+                        {
+                            Movie? selectedMovie =
+                            movies.FirstOrDefault(m => m.Id == detailsMovieId);
+
+                            if (selectedMovie == null)
+                            {
+                                ConsoleUI.Error("Movie not found.");
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+
+                                Console.WriteLine("\n╔════════════════════════════════════════════╗");
+                                Console.WriteLine("║               MOVIE DETAILS               ║");
+                                Console.WriteLine("╚════════════════════════════════════════════╝");
+
+                                Console.ResetColor();
+
+                                Console.WriteLine($"\nTitle        : {selectedMovie.Title}");
+                                Console.WriteLine($"Genre        : {selectedMovie.Genre}");
+                                Console.WriteLine($"Release Year : {selectedMovie.ReleaseYear}");
+                                Console.WriteLine($"Rating       : {selectedMovie.Rating}");
+                                Console.WriteLine($"Director     : {selectedMovie.Director}");
+
+                                Console.WriteLine($"\nDescription:");
+                                Console.WriteLine(selectedMovie.Description);
+
+                                Console.WriteLine($"\nCast:");
+                                foreach (string actor in selectedMovie.Cast)
+                                {
+                                    Console.WriteLine($"- {actor}");
+                                }
+
+                                Console.WriteLine($"\nTags:");
+                                foreach (string tag in selectedMovie.Tags)
+                                {
+                                    Console.WriteLine($"# {tag}");
+                                }
+                            }
+                        }
+
+                        break;
+                    // Logout from dashboard.
+                    case "12":
+                        ConsoleUI.Loading("Logging out");
+
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("Thank you for using our AI Movie System!");
+                        Console.ResetColor();
                         return;
 
                     default:
-                        Console.WriteLine("Invalid option.");
+                        Console.ForegroundColor = ConsoleColor.Red;
+
+                        Console.WriteLine("╔════════════════════════════╗");
+                        Console.WriteLine("║      Invalid Option!      ║");
+                        Console.WriteLine("╚════════════════════════════╝");
+
+                        Console.ResetColor();
                         break;
                 }
-
-                Console.WriteLine("\nPress any key to continue...");
+                Console.WriteLine("\nPress any key to return to dashboard...");
                 Console.ReadKey();
+
+
+
             }
         }
     }
 }
+
+    

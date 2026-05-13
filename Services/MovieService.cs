@@ -14,20 +14,29 @@ namespace MovieRecommendationSystem.Services
             _ratings = ratings;
         }
 
-        // Display all movies.
-        public void DisplayMovies()
+        // Display all movies.
+        public void DisplayMovies()
         {
-            Console.WriteLine("\nMovies List:");
-            Console.WriteLine("--------------------------------------");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+
+            Console.WriteLine("\n==================================================================================================");
+            Console.WriteLine($"{"ID",-5} {"TITLE",-35} {"GENRE",-15} {"YEAR",-10} {"RATING",-10}");
+            Console.WriteLine("==================================================================================================");
+
+            Console.ResetColor();
 
             foreach (var movie in _movies)
             {
-                Console.WriteLine($"{movie.Id}. {movie.Title} | {movie.Genre} | {movie.ReleaseYear} | Rating: {movie.Rating}");
+                Console.WriteLine($"{movie.Id,-5} {movie.Title,-35} {movie.Genre,-15} {movie.ReleaseYear,-10} {movie.Rating,-10}");
             }
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("==================================================================================================");
+            Console.ResetColor();
         }
 
-        // Add or update rating.
-        public void RateMovie(User user, int movieId, int score)
+        // Add or update rating.
+        public void RateMovie(User user, int movieId, int score)
         {
             if (!ValidationHelper.IsValidRating(score))
             {
@@ -44,12 +53,14 @@ namespace MovieRecommendationSystem.Services
             }
 
             var existingRating = _ratings.FirstOrDefault(r =>
-                r.UserId == user.Id && r.MovieId == movieId);
+            r.UserId == user.Id && r.MovieId == movieId);
 
             if (existingRating != null)
             {
                 existingRating.Score = score;
                 Console.WriteLine("Rating updated successfully.");
+                Console.WriteLine($"Movie ID: {movieId}");
+                Console.WriteLine($"Score: {score}");
             }
             else
             {
@@ -64,13 +75,29 @@ namespace MovieRecommendationSystem.Services
                 Console.WriteLine("Rating saved!");
                 Console.WriteLine($"Movie ID: {movieId}");
                 Console.WriteLine($"Score: {score}");
-
             }
 
             if (!user.WatchHistory.Contains(movieId))
             {
                 user.WatchHistory.Add(movieId);
             }
+        }
+
+        // Remove movie rating.
+        public void RemoveRating(User user, int movieId)
+        {
+            var rating = _ratings.FirstOrDefault(r =>
+            r.UserId == user.Id && r.MovieId == movieId);
+
+            if (rating == null)
+            {
+                Console.WriteLine("Rating not found.");
+                return;
+            }
+
+            _ratings.Remove(rating);
+
+            Console.WriteLine("Rating removed successfully.");
         }
     }
 }

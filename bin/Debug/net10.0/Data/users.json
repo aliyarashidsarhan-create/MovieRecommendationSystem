@@ -5,7 +5,8 @@
       "Action"
     ],
     "WatchHistory": [
-      1
+      1,
+      50
     ],
     "Id": 1,
     "Username": "malak",
@@ -21,7 +22,7 @@
       3
     ],
     "Id": 2,
-    "Username": "hind",
+    "Username": "Alya",
     "Password": "1234"
   },
   {
@@ -45,5 +46,81 @@
     "Id": 4,
     "Username": "shekia",
     "Password": "2222"
+  },
+  {
+    "FavoriteGenres": [
+      "Romance",
+      "Drama"
+    ],
+    "WatchHistory": [
+      4,
+      7
+    ],
+    "Id": 5,
+    "Username": "Fatma",
+    "Password": "1234"
+  },
+  {
+    "FavoriteGenres": [
+      "Animation",
+      "Fantasy"
+    ],
+    "WatchHistory": [
+      8
+    ],
+    "Id": 6,
+    "Username": "Yahya",
+    "Password": "1234"
+  },
+  {
+    "FavoriteGenres": [
+      "Sci-Fi",
+      "Drama"
+    ],
+    "WatchHistory": [
+      2,
+      9
+    ],
+    "Id": 7,
+    "Username": "reem",
+    "Password": "1234"
+  },
+  {
+    "FavoriteGenres": [
+      "Action",
+      "Crime"
+    ],
+    "WatchHistory": [
+      3,
+      7
+    ],
+    "Id": 8,
+    "Username": "nora",
+    "Password": "1234"
+  },
+  {
+    "FavoriteGenres": [
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "WatchHistory": [
+      5,
+      6
+    ],
+    "Id": 9,
+    "Username": "sara",
+    "Password": "1234"
+  },
+  {
+    "FavoriteGenres": [
+      "History",
+      "Action"
+    ],
+    "WatchHistory": [
+      10
+    ],
+    "Id": 10,
+    "Username": "mona",
+    "Password": "1234"
   }
 ]

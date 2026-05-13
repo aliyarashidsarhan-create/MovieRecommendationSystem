@@ -55,23 +55,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\anoud\\.nuget\\packages\\": {},
+    "C:\\Users\\sheik\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anoud\\OneDrive\\Desktop\\BackEnd\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj",
+      "projectUniqueName": "C:\\Users\\sheik\\OneDrive\\Desktop\\MovieRecommendationSystem\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj",
       "projectName": "MovieRecommendationSystem",
-      "projectPath": "C:\\Users\\anoud\\OneDrive\\Desktop\\BackEnd\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj",
-      "packagesPath": "C:\\Users\\anoud\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anoud\\OneDrive\\Desktop\\BackEnd\\MovieRecommendationSystem\\obj\\",
+      "projectPath": "C:\\Users\\sheik\\OneDrive\\Desktop\\MovieRecommendationSystem\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj",
+      "packagesPath": "C:\\Users\\sheik\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sheik\\OneDrive\\Desktop\\MovieRecommendationSystem\\MovieRecommendationSystem\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\anoud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sheik\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -84,7 +84,6 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {}
         }
@@ -103,7 +102,6 @@
     },
     "frameworks": {
       "net10.0": {
-        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "Newtonsoft.Json": {
@@ -127,7 +125,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

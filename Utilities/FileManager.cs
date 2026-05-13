@@ -1,36 +1,62 @@
 ﻿using MovieRecommendationSystem.Interfaces;
-using Newtonsoft.Json;   // يحول البيانات من C# الى JSON
+using Newtonsoft.Json;
 using static MovieRecommendationSystem.Interfaces.IDataManager;
 
 namespace MovieRecommendationSystem.Utilities
 {
-    public class FileManager<T> : IDataManager<T>
+    // Generic class for loading and saving JSON data.
+    public class FileManager<T> : IDataManager<T>
     {
-        // Load data from JSON file.
-        public List<T> LoadData(string filePath)
+        // Load data from JSON file.
+        public List<T> LoadData(string filePath)
         {
-            // If file does not exist, return empty list.
-            if (!File.Exists(filePath))
+            // Get folder path.
+            string? directory = Path.GetDirectoryName(filePath);
+
+            // Create folder if it does not exist.
+            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            // Create file if it does not exist.
+            if (!File.Exists(filePath))
+            {
+                File.WriteAllText(filePath, "[]");
+
+                return new List<T>();
+            }
+
+            // Read JSON content.
+            string json = File.ReadAllText(filePath);
+
+            // Return empty list if file is empty.
+            if (string.IsNullOrWhiteSpace(json))
             {
                 return new List<T>();
             }
 
-            string json = File.ReadAllText(filePath);
-
-            // If file is empty, return empty list.
-            if (string.IsNullOrWhiteSpace(json))
-            {
-                return new List<T>();
-            }
-
-            return JsonConvert.DeserializeObject<List<T>>(json) ?? new List<T>();
+            // Convert JSON into list.
+            return JsonConvert.DeserializeObject<List<T>>(json) ?? new List<T>();
         }
 
-        // Save data to JSON file.
-        public void SaveData(string filePath, List<T> data)
+        // Save data to JSON file.
+        public void SaveData(string filePath, List<T> data)
         {
-            string json = JsonConvert.SerializeObject(data, Formatting.Indented);
-            File.WriteAllText(filePath, json);
+            // Get folder path.
+            string? directory = Path.GetDirectoryName(filePath);
+
+            // Create folder if it does not exist.
+            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            // Convert object list into JSON.
+            string json = JsonConvert.SerializeObject(data, Formatting.Indented);
+
+            // Save JSON into file.
+            File.WriteAllText(filePath, json);
         }
     }
 }

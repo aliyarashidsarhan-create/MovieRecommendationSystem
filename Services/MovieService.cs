@@ -61,6 +61,10 @@ namespace MovieRecommendationSystem.Services
                 });
 
                 Console.WriteLine("Rating added successfully.");
+                Console.WriteLine("Rating saved!");
+                Console.WriteLine($"Movie ID: {movieId}");
+                Console.WriteLine($"Score: {score}");
+
             }
 
             if (!user.WatchHistory.Contains(movieId))

@@ -19,7 +19,8 @@
     ],
     "WatchHistory": [
       1,
-      3
+      3,
+      4
     ],
     "Id": 2,
     "Username": "Alya",
@@ -122,5 +123,19 @@
     "Id": 10,
     "Username": "mona",
     "Password": "1234"
+  },
+  {
+    "FavoriteGenres": [
+      "ACTION"
+    ],
+    "WatchHistory": [
+      50,
+      40,
+      30,
+      49
+    ],
+    "Id": 11,
+    "Username": "ALI",
+    "Password": "8888"
   }
 ]

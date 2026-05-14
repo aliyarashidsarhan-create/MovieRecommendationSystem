@@ -148,5 +148,20 @@
     "UserId": 10,
     "MovieId": 6,
     "Score": 5
+  },
+  {
+    "UserId": 11,
+    "MovieId": 40,
+    "Score": 5
+  },
+  {
+    "UserId": 11,
+    "MovieId": 30,
+    "Score": 5
+  },
+  {
+    "UserId": 11,
+    "MovieId": 49,
+    "Score": 2
   }
 ]

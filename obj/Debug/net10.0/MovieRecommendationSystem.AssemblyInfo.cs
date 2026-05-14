@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MovieRecommendationSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17e9e78706109c662e072fe6d91a381d41ff900f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e15bf41e7041dd08d57a203a8955d55cbdded1c")]
 [assembly: System.Reflection.AssemblyProductAttribute("MovieRecommendationSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MovieRecommendationSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

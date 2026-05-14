@@ -1,5 +1,6 @@
 ﻿using MovieRecommendationSystem.Models;
 using MovieRecommendationSystem.Utilities;
+using System.Threading;
 
 namespace MovieRecommendationSystem.Services
 {
@@ -14,25 +15,80 @@ namespace MovieRecommendationSystem.Services
             _ratings = ratings;
         }
 
-        // Display all movies.
-        public void DisplayMovies()
+        // Display all movies.
+        public void DisplayMovies()
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Clear();
 
-            Console.WriteLine("\n==================================================================================================");
-            Console.WriteLine($"{"ID",-5} {"TITLE",-35} {"GENRE",-15} {"YEAR",-10} {"RATING",-10}");
-            Console.WriteLine("==================================================================================================");
-
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("\n======================== MOVIE GALLERY ========================\n");
             Console.ResetColor();
 
-            foreach (var movie in _movies)
+            int columns = 3;
+            int cardWidth = 34;
+
+            for (int i = 0; i < _movies.Count; i += columns)
             {
-                Console.WriteLine($"{movie.Id,-5} {movie.Title,-35} {movie.Genre,-15} {movie.ReleaseYear,-10} {movie.Rating,-10}");
+                var rowMovies = _movies.Skip(i).Take(columns).ToList();
+
+                var cards = rowMovies
+                .Select(movie => BuildMovieCard(movie, cardWidth))
+                .ToList();
+
+                for (int line = 0; line < cards[0].Count; line++)
+                {
+                    if (line == 0 || line == 2 || line == 5)
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                    else if (line == 1)
+                        Console.ForegroundColor = ConsoleColor.White;
+                    else if (line == 4)
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                    else
+                        Console.ForegroundColor = ConsoleColor.Gray;
+
+                    foreach (var card in cards)
+                    {
+                        Console.Write(card[line] + "  ");
+                    }
+
+                    Console.WriteLine();
+                    Console.ResetColor();
+                }
+
+                Console.WriteLine();
+            }
+        }
+
+        private List<string> BuildMovieCard(Movie movie, int width)
+        {
+            string border = "+" + new string('-', width - 2) + "+";
+
+            int starsCount = (int)Math.Round(movie.Rating / 2);
+            starsCount = Math.Clamp(starsCount, 0, 5);
+
+            string stars = new string('*', starsCount) + new string('-', 5 - starsCount);
+
+            return new List<string>
+{
+border,
+FormatCardLine($"[{movie.Id}] {movie.Title}", width),
+border,
+FormatCardLine($"Genre: {movie.Genre}", width),
+FormatCardLine($"Rating: {stars} ({movie.Rating:0.0})", width),
+border
+};
+        }
+
+        private string FormatCardLine(string text, int width)
+        {
+            int contentWidth = width - 4;
+
+            if (text.Length > contentWidth)
+            {
+                text = text.Substring(0, contentWidth - 3) + "...";
             }
 
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("==================================================================================================");
-            Console.ResetColor();
+            return "| " + text.PadRight(contentWidth) + " |";
         }
 
         // Add or update rating.

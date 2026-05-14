@@ -11,19 +11,42 @@ namespace MovieRecommendationSystem.Utilities
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
 
-            Console.WriteLine("╔════════════════════════════════════════════════════╗");
-            Console.WriteLine("║                                                    ║");
-            Console.WriteLine($"║        {title.PadRight(36)}║");
-            Console.WriteLine("║                                                    ║");
-            Console.WriteLine("╚════════════════════════════════════════════════════╝");
-
+            Console.WriteLine("\t\t\t\t╔═************═══════════════════════════════════════╗");
+            Console.WriteLine("\t\t\t\t║                                                    ║");
+            Console.WriteLine($"\t\t\t\t     {title.PadRight(36)}                       ");
+            Console.WriteLine("\t\t\t\t║                                                    ║");
+            Console.WriteLine("\t\t\t\t╚════════════════════════════════════*************═══╝\n\n");  
             Console.ResetColor();
         }
+
+        public static string logo = @"
+
+███╗   ███╗ ...
+";
+
+        public static string[] lines = logo.Split('\n');
+
+        public static void DisplayLogo()
+{
+    int padding = (Console.WindowWidth - lines.Length) / 2;
+
+    if (padding > 0)
+    {
+        Console.WriteLine(new string (' ', padding) + lines);
+    }
+    else
+    {
+        Console.WriteLine(lines);
+    }
+
+Thread.Sleep(15);
+}
+
 
         public static void Section(string title)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"\n========== {title} ==========\n");
+            Console.WriteLine($"\n========== {title} ==========\n");        
             Console.ResetColor();
         }
 
@@ -36,7 +59,7 @@ namespace MovieRecommendationSystem.Utilities
 
         public static void Error(string message)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine(message);
             Console.ResetColor();
         }
@@ -47,10 +70,10 @@ namespace MovieRecommendationSystem.Utilities
             Console.WriteLine(message);
             Console.ResetColor();
         }
-
+        
         public static void Loading(string message)
         {
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write(message);
 
             for (int i = 0; i < 3; i++)

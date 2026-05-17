@@ -164,16 +164,5 @@
     "Id": 12,
     "Username": "noura",
     "Password": "12345"
-  },
-  {
-    "FavoriteGenres": [
-      "Action"
-    ],
-    "WatchHistory": [
-      49
-    ],
-    "Id": 13,
-    "Username": "khalida",
-    "Password": "1234567878"
   }
 ]

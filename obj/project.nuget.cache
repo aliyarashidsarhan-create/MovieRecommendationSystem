@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "7arhaYoti9A=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sheik\\OneDrive\\Desktop\\MovieRecommendationSystem\\MovieRecommendationSystem\\MovieRecommendationSystem.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sheik\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}

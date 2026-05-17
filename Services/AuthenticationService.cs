@@ -17,20 +17,20 @@ namespace MovieRecommendationSystem.Services
         {
             if (!ValidationHelper.IsValidUsername(username))
             {
-                Console.WriteLine("Username must be at least 3 characters.");
+                ConsoleUI.Error("Username must be at least 3 characters.");
                 return null;
             }
 
             if (!ValidationHelper.IsValidPassword(password))
             {
-                Console.WriteLine("Password must be at least 4 characters.");
+                ConsoleUI.Error("Password must be at least 4 characters.");
                 return null;
             }
 
             // Prevent duplicate username.
             if (_users.Any(u => u.Username.ToLower() == username.ToLower()))
             {
-                Console.WriteLine("Username already exists.");
+                ConsoleUI.Error("Username already exists.");
                 return null;
             }
 
@@ -46,7 +46,8 @@ namespace MovieRecommendationSystem.Services
         public User? Login(string username, string password)
         {
             return _users.FirstOrDefault(u =>
-                u.Username == username && u.Password == password);
+            u.Username.ToLower() == username.ToLower() &&
+            u.Password == password);
         }
     }
 }

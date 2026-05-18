@@ -799,6 +799,7 @@ string ratingsFile)
                             {
                                 ConsoleUI.Error("Movie not found.");
                             }
+                            //movie details 
                             else
                             {
                                 Console.ForegroundColor = ConsoleColor.Green;
@@ -851,7 +852,7 @@ string ratingsFile)
 
                         Console.ResetColor();
                         break;
-                }
+                }// 
                 Console.WriteLine("\nPress any key to return to dashboard...");
                 Console.ReadKey();
 

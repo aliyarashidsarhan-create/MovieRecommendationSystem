@@ -1,10 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MovieRecommendationSystem.Interfaces;
+using MovieRecommendationSystem.Models;
 
 namespace MovieRecommendationSystem.Services
 {
-    internal class SearchService
+    public class SearchService : ISearch
     {
+        // Search by title, genre, director, year, or rating.
+        public List<Movie> SearchMovies(List<Movie> movies, string keyword)
+        {
+            keyword = keyword.ToLower();
+
+            return movies.Where(m =>
+                m.Title.ToLower().Contains(keyword) ||
+                m.Genre.ToLower().Contains(keyword) ||
+                m.Director.ToLower().Contains(keyword) ||
+                m.ReleaseYear.ToString().Contains(keyword) ||
+                m.Rating.ToString().Contains(keyword)
+            ).ToList();
+        }
     }
 }

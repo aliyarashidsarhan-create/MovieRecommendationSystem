@@ -1,6 +1,7 @@
 ﻿using MovieRecommendationSystem.Models;
 using MovieRecommendationSystem.Services;
 using MovieRecommendationSystem.Utilities;
+using System.Linq;
 using System.Threading;
 
 
@@ -8,6 +9,7 @@ namespace MovieRecommendationSystem
 {
     internal class Program
     {
+        static Admin systemAdmin = new Admin(999, "admin", "admin123");
         static void Main(string[] args)
         {
             ConsoleUI.Header("AI MOVIE RECOMMENDATION SYSTEM\n");
@@ -78,28 +80,36 @@ namespace MovieRecommendationSystem
             {
                 // Display professional main menu.
                 ConsoleUI.Header("AI MOVIE RECOMMENDATION SYSTEM");
+
                 Console.ForegroundColor = ConsoleColor.Yellow;
+
                 Console.WriteLine("\t\t\t\t  ╔══════════════════════════════════════════════╗");
                 Console.WriteLine("\t\t\t\t  ║                  MAIN MENU                   ║");
                 Console.WriteLine("\t\t\t\t  ║                                              ║");
                 Console.WriteLine("\t\t\t\t  ╠══════════════════════════════════════════════╣");
+
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("\t\t\t\t  ║  [1]    Create New Account                   ║");
+
+                Console.WriteLine("\t\t\t\t  ║  [1]  Create New Account                     ║");
                 Console.WriteLine("\t\t\t\t  ║                                              ║");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("\t\t\t\t  ║  [2]  Login to Your Account                  ║");
+
+                Console.WriteLine("\t\t\t\t  ║  [2]  Login                                  ║");
                 Console.WriteLine("\t\t\t\t  ║                                              ║");
-                Console.ForegroundColor = ConsoleColor.White;
-                    ;
+
                 Console.WriteLine("\t\t\t\t  ║  [3]  Exit System                            ║");
                 Console.WriteLine("\t\t\t\t  ║                                              ║");
-                Console.ForegroundColor = ConsoleColor.Yellow; 
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+
                 Console.WriteLine("\t\t\t\t  ╚══════════════════════════════════════════════╝");
-                Console.ResetColor();
-                Console.ForegroundColor = ConsoleColor.Gray;
-                Console.Write("\n\n\t\t\t\t\t Select an option: ");
+
                 Console.ResetColor();
 
+                Console.ForegroundColor = ConsoleColor.Gray;
+
+                Console.Write("\n\n\t\t\t\t\t Select an option: ");
+
+                Console.ResetColor();
 
                 string choice = Console.ReadLine() ?? "";
 
@@ -107,12 +117,115 @@ namespace MovieRecommendationSystem
                 switch (choice)
                 {
                     case "1":
+
                         ConsoleUI.Loading("\n\t\t\t\t\t\tOpening registration page");
-                        Register(authService, userFileManager, usersFile, users);
+
+                        Register(
+                            authService,
+                            userFileManager,
+                            usersFile,
+                            users
+                        );
+
                         break;
 
                     case "2":
+
                         ConsoleUI.Loading("\n\t\t\t\t\tOpening login page");
+
+                        LoginMenu(
+                            authService,
+                            movieService,
+                            searchService,
+                            recommendationService,
+                            movies,
+                            ratings,
+                            users,
+                            userFileManager,
+                            ratingFileManager,
+                            usersFile,
+                            ratingsFile
+                        );
+
+                        break;
+
+                    case "3":
+
+                        ConsoleUI.Loading("\n\t\t\t\t\t\tClosing system");
+
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+
+                        Console.WriteLine("\n\n\t\t\t\t\t\tThank you for using our AI Movie Recommendation System!");
+
+                        Console.ResetColor();
+
+                        return;
+
+                    default:
+
+                        Console.ForegroundColor = ConsoleColor.Red;
+
+                        Console.WriteLine("╔════════════════════════════╗");
+                        Console.WriteLine("║      Invalid Option!       ║");
+                        Console.WriteLine("╚════════════════════════════╝");
+
+                        Console.ResetColor();
+
+                        break;
+                }
+
+                Console.WriteLine("\n\n\t\t\t\t\t\tPress any key to continue...");
+
+                Console.ReadKey();
+            }
+        
+        }
+
+        static void LoginMenu(
+    AuthenticationService authService,
+    MovieService movieService,
+    SearchService searchService,
+    RecommendationService recommendationService,
+    List<Movie> movies,
+    List<Rating> ratings,
+    List<User> users,
+    FileManager<User> userFileManager,
+    FileManager<Rating> ratingFileManager,
+    string usersFile,
+    string ratingsFile)
+        {
+            while (true)
+            {
+                Console.Clear();
+
+                ConsoleUI.Header("LOGIN MENU");
+
+                Console.WriteLine("\n\t\t\t\t\t\t[1] Admin Login");
+                Console.WriteLine("\t\t\t\t\t\t[2] User Login");
+                Console.WriteLine("\t\t\t\t\t\t[3] Back");
+
+                Console.Write("\n\t\t\t\t\t\tSelect option: ");
+
+                string choice = Console.ReadLine() ?? "";
+
+                switch (choice)
+                {
+                    case "1":
+
+                        AdminLogin(
+                            movies,
+                            ratings,
+                            users,
+                            userFileManager,
+                            ratingFileManager,
+                            usersFile,
+                            ratingsFile
+                        );
+
+                        break;
+
+                    case "2":
+
                         Login(
                             authService,
                             movieService,
@@ -126,33 +239,24 @@ namespace MovieRecommendationSystem
                             usersFile,
                             ratingsFile
                         );
+
                         break;
 
                     case "3":
-                        ConsoleUI.Loading("\n\t\t\t\t\t\tClosing system");
 
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-
-                        Console.WriteLine("\n\n\t\t\t\t\t\tThank you for using our AI Movie Recommendation System!");
-
-                        Console.ResetColor();
                         return;
 
                     default:
-                        Console.ForegroundColor = ConsoleColor.Red;
 
-                        Console.WriteLine("╔════════════════════════════╗");
-                        Console.WriteLine("║      Invalid Option!       ║");
-                        Console.WriteLine("╚════════════════════════════╝");
+                        Console.WriteLine("Invalid option.");
 
-                        Console.ResetColor();
+                        Thread.Sleep(1000);
+
                         break;
                 }
-
-                Console.WriteLine("\n\n\t\t\t\t\t\tPress any key to continue...");
-                Console.ReadKey();
             }
         }
+
 
         // Register a new user.
         static void Register(
@@ -221,19 +325,19 @@ namespace MovieRecommendationSystem
             }
         }
 
-    // Login existing user.
-static void Login(
-AuthenticationService authService,
-MovieService movieService,
-SearchService searchService,
-RecommendationService recommendationService,
-List<Movie> movies,
-List<Rating> ratings,
-List<User> users,
-FileManager<User> userFileManager,
-FileManager<Rating> ratingFileManager,
-string usersFile,
-string ratingsFile)
+        // Login existing user.
+        static void Login(
+            AuthenticationService authService,
+            MovieService movieService,
+            SearchService searchService,
+            RecommendationService recommendationService,
+            List<Movie> movies,
+            List<Rating> ratings,
+            List<User> users,
+            FileManager<User> userFileManager,
+            FileManager<Rating> ratingFileManager,
+            string usersFile,
+            string ratingsFile)
         {
             User? user = null;
 
@@ -258,8 +362,8 @@ string ratingsFile)
                     Console.ForegroundColor = ConsoleColor.DarkRed;
 
                     Console.WriteLine("\t\t\t\t\t╔══════════════════════════════════════╗");
-                    Console.WriteLine("\t\t\t\t\t║  Invalid username or password!       ║");
-                    Console.WriteLine("\t\t\t\t\t║  Please try again.                   ║");
+                    Console.WriteLine("\t\t\t\t\t║  Invalid username or password!      ║");
+                    Console.WriteLine("\t\t\t\t\t║  Please try again.                  ║");
                     Console.WriteLine("\t\t\t\t\t╚══════════════════════════════════════╝");
 
                     Console.ResetColor();
@@ -273,20 +377,163 @@ string ratingsFile)
             ConsoleUI.Loading($"\n\t\t\t\t\t\tLoading profile for {user.Username}");
 
             UserDashboard(
-            user,
-            movieService,
-            searchService,
-            recommendationService,
-            movies,
-            ratings,
-            users,
-            userFileManager,
-            ratingFileManager,
-            usersFile,
-            ratingsFile
+                user,
+                movieService,
+                searchService,
+                recommendationService,
+                movies,
+                ratings,
+                users,
+                userFileManager,
+                ratingFileManager,
+                usersFile,
+                ratingsFile
             );
         }
 
+        static void AdminLogin(
+    List<Movie> movies,
+    List<Rating> ratings,
+    List<User> users,
+    FileManager<User> userFileManager,
+    FileManager<Rating> ratingFileManager,
+    string usersFile,
+    string ratingsFile)
+        {
+            Console.Clear();
+
+            ConsoleUI.Header("ADMIN LOGIN");
+
+            Console.Write("\n\t\t\t\t\t\tEnter admin username: ");
+            string username = Console.ReadLine() ?? "";
+
+            Console.Write("\n\t\t\t\t\t\tEnter admin password: ");
+            string password = Console.ReadLine() ?? "";
+
+            if (username == "admin" && password == "admin123")
+            {
+                ConsoleUI.Success("\n\t\t\t\t\t\tAdmin login successful.");
+
+                AdminDashboard(
+                    movies,
+                    ratings,
+                    users,
+                    userFileManager,
+                    ratingFileManager,
+                    usersFile,
+                    ratingsFile
+                );
+            }
+            else
+            {
+                ConsoleUI.Error("\n\t\t\t\t\t\tInvalid admin credentials.");
+
+                Thread.Sleep(1500);
+            }
+        }
+
+        static void AdminDashboard(
+    List<Movie> movies,
+    List<Rating> ratings,
+    List<User> users,
+    FileManager<User> userFileManager,
+    FileManager<Rating> ratingFileManager,
+    string usersFile,
+    string ratingsFile)
+        {
+            while (true)
+            {
+                Console.Clear();
+
+                ConsoleUI.Header("ADMIN DASHBOARD");
+
+                Console.WriteLine("\n\t\t\t\t\t\t[1] View Users");
+                Console.WriteLine("\t\t\t\t\t\t[2] View Ratings");
+                Console.WriteLine("\t\t\t\t\t\t[3] Delete Movie");
+                Console.WriteLine("\t\t\t\t\t\t[4] Logout");
+
+                Console.Write("\n\t\t\t\t\t\tChoose option: ");
+
+                string choice = Console.ReadLine() ?? "";
+
+                switch (choice)
+                {
+                    case "1":
+
+                        Console.Clear();
+
+                        Console.WriteLine("\nALL USERS:\n");
+
+                        foreach (User user in users)
+                        {
+                            Console.WriteLine($"ID: {user.Id} | Username: {user.Username}");
+                        }
+
+                        break;
+
+                    case "2":
+
+                        Console.Clear();
+
+                        Console.WriteLine("\nALL RATINGS:\n");
+
+                        foreach (Rating rating in ratings)
+                        {
+                            Console.WriteLine(
+                                $"User ID: {rating.UserId} | Movie ID: {rating.MovieId} | Score: {rating.Score}");
+                        }
+
+                        break;
+
+                    case "3":
+
+                        Console.Clear();
+
+                        Console.Write("\nEnter Movie ID to delete: ");
+
+                        bool valid = int.TryParse(Console.ReadLine(), out int movieId);
+
+                        if (!valid)
+                        {
+                            Console.WriteLine("Invalid ID.");
+                            break;
+                        }
+
+                        Movie? movie = movies.FirstOrDefault(m => m.Id == movieId);
+
+                        if (movie == null)
+                        {
+                            Console.WriteLine("Movie not found.");
+                            break;
+                        }
+
+                        movies.Remove(movie);
+
+                        ratings.RemoveAll(r => r.MovieId == movieId);
+
+                        foreach (User user in users)
+                        {
+                            user.WatchHistory.Remove(movieId);
+                        }
+
+                        Console.WriteLine("Movie deleted successfully.");
+
+                        break;
+
+                    case "4":
+
+                        return;
+
+                    default:
+
+                        Console.WriteLine("Invalid option.");
+                        break;
+                }
+
+                Console.WriteLine("\nPress any key...");
+                Console.ReadKey();
+            }
+        }
         // User dashboard after login.
         static void UserDashboard(
             User user,

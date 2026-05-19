@@ -164,5 +164,27 @@
     "Id": 12,
     "Username": "noura",
     "Password": "12345"
+  },
+  {
+    "FavoriteGenres": [
+      "Action"
+    ],
+    "WatchHistory": [
+      49
+    ],
+    "Id": 13,
+    "Username": "khalida",
+    "Password": "1234567878"
+  },
+  {
+    "FavoriteGenres": [
+      "action"
+    ],
+    "WatchHistory": [
+      34
+    ],
+    "Id": 14,
+    "Username": "hoor",
+    "Password": "54321"
   }
 ]

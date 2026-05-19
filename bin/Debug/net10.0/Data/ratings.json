@@ -978,5 +978,15 @@
     "UserId": 2,
     "MovieId": 8,
     "Score": 3
+  },
+  {
+    "UserId": 13,
+    "MovieId": 49,
+    "Score": 5
+  },
+  {
+    "UserId": 14,
+    "MovieId": 34,
+    "Score": 3
   }
 ]

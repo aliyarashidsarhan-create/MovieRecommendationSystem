@@ -1,4 +1,4 @@
-﻿using MovieRecommendationSystem.Models;
+using MovieRecommendationSystem.Models;
 using MovieRecommendationSystem.Services;
 using MovieRecommendationSystem.Utilities;
 using System.Linq;
@@ -178,6 +178,87 @@ namespace MovieRecommendationSystem
 
                 Console.ReadKey();
             }
+
+
+        }
+
+        static void LoginMenu(
+    AuthenticationService authService,
+    MovieService movieService,
+    SearchService searchService,
+    RecommendationService recommendationService,
+    List<Movie> movies,
+    List<Rating> ratings,
+    List<User> users,
+    FileManager<User> userFileManager,
+    FileManager<Rating> ratingFileManager,
+    string usersFile,
+    string ratingsFile)
+        {
+            while (true)
+            {
+                Console.Clear();
+
+                ConsoleUI.Header("LOGIN MENU");
+
+                Console.WriteLine("\n\t\t\t\t\t\t[1] Admin Login");
+                Console.WriteLine("\t\t\t\t\t\t[2] User Login");
+                Console.WriteLine("\t\t\t\t\t\t[3] Back");
+
+                Console.Write("\n\t\t\t\t\t\tSelect option: ");
+
+                string choice = Console.ReadLine() ?? "";
+
+                switch (choice)
+                {
+                    case "1":
+
+                        AdminLogin(
+                            movies,
+                            ratings,
+                            users,
+                            userFileManager,
+                            ratingFileManager,
+                            usersFile,
+                            ratingsFile
+                        );
+
+                        break;
+
+                    case "2":
+
+                        Login(
+                            authService,
+                            movieService,
+                            searchService,
+                            recommendationService,
+                            movies,
+                            ratings,
+                            users,
+                            userFileManager,
+                            ratingFileManager,
+                            usersFile,
+                            ratingsFile
+                        );
+
+                        break;
+
+                    case "3":
+
+                        return;
+
+                    default:
+
+                        Console.WriteLine("Invalid option.");
+
+                        Thread.Sleep(1000);
+
+                        break;
+                }
+            }
+        }
+
+
         
         }
 
@@ -256,6 +337,7 @@ namespace MovieRecommendationSystem
                 }
             }
         }
+
 
 
         // Register a new user.
@@ -594,7 +676,7 @@ namespace MovieRecommendationSystem
                     // Display all movies.
                     case "1":
                         movieService.DisplayMovies();
-                       
+
                         break;
 
                     // Search movies by keyword.
@@ -1110,4 +1192,4 @@ namespace MovieRecommendationSystem
     }
 }
 
-    
+

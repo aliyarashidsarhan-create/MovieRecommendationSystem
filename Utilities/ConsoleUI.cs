@@ -41,7 +41,7 @@ namespace MovieRecommendationSystem.Utilities
 
 Thread.Sleep(15);
 }
-
+        //
 
         public static void Section(string title)
         {
@@ -56,7 +56,7 @@ Thread.Sleep(15);
             Console.WriteLine(message);
             Console.ResetColor();
         }
-
+        //
         public static void Error(string message)
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -70,7 +70,7 @@ Thread.Sleep(15);
             Console.WriteLine(message);
             Console.ResetColor();
         }
-        
+        //
         public static void Loading(string message)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -85,7 +85,7 @@ Thread.Sleep(15);
             Console.WriteLine();
             Console.ResetColor();
         }
-
+        //
         public static void Wait()
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
